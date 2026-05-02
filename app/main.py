@@ -20,6 +20,7 @@ app = dash.Dash(
     __name__,
     assets_folder=str(APP_DIR / "assets"),
     suppress_callback_exceptions=True,
+    requests_pathname_prefix=settings.BASE_URL + "/",
 )
 server = app.server
 
