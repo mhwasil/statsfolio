@@ -440,36 +440,6 @@ def render_analysis(theme="dark"):
     drawdown_fig = _build_drawdown_chart(result, theme)
     cashflow_fig = _build_cashflow_chart(result, theme)
 
-    # Recent activities AG Grid
-    activity_rows = []
-    for a in sorted(result.activities_raw, key=lambda x: x.get("date", ""), reverse=True)[:50]:
-        d = a.get("date", "")[:10]
-        quantity = float(a.get("quantity", 0))
-        unit_price = float(a.get("unitPrice", 0))
-        fee = float(a.get("fee", 0))
-        atype = a.get("type", "")
-        total = quantity * unit_price + (fee if atype in ("BUY", "FEE") else -fee)
-        activity_rows.append({
-            "date": d,
-            "symbol": _activity_symbol(a),
-            "name": (a.get("SymbolProfile") or {}).get("name", "") or a.get("name", "") or "",
-            "type": atype,
-            "quantity": f"{quantity:.4f}",
-            "unitPrice": f"{unit_price:,.2f}",
-            "fee": f"{fee:,.2f}",
-            "total": f"{total:,.2f}",
-            "currency": a.get("currency", ""),
-        })
-
-    activities_grid = dag.AgGrid(
-        columnDefs=ACTIVITIES_COL_DEFS,
-        rowData=activity_rows,
-        className=f"{THEMES[theme]['ag_theme']} ag-theme-gf",
-        defaultColDef={"resizable": True, "sortable": True, "filter": True},
-        dashGridOptions={"pagination": False},
-        style={"height": "450px"},
-    )
-
     return [
         html.H1("Performance Analysis", className="page-title"),
         summary,
@@ -481,7 +451,6 @@ def render_analysis(theme="dark"):
         html.Div(dcc.Graph(figure=monthly_fig, config={"displayModeBar": False}), key=f"monthly-{theme}", className="chart-card full-width"),
         html.Div(dcc.Graph(figure=drawdown_fig, config={"displayModeBar": False}), key=f"drawdown-{theme}", className="chart-card full-width"),
         html.Div(dcc.Graph(figure=cashflow_fig, config={"displayModeBar": False}), key=f"cashflow-{theme}", className="chart-card full-width"),
-        html.Div([html.H2("Recent Activities (Last 50)"), activities_grid], className="table-card"),
     ]
 
 
