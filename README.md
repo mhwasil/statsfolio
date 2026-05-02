@@ -49,7 +49,7 @@ Open `http://localhost:3000` in your browser.
 
 3. Run the server:
    ```bash
-   PYTHONPATH=.:$PYTHONPATH uvicorn app.main:server --host 0.0.0.0 --port 3000
+   PYTHONPATH=.:$PYTHONPATH waitress-serve --listen=0.0.0.0:3000 app.main:server
    ```
 
 4. Open `http://localhost:3000` in your browser.

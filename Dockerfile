@@ -11,4 +11,7 @@ EXPOSE 3000
 
 ENV HOST=0.0.0.0 PORT=3000 BASE_URL=/
 
-CMD ["sh", "-c", "uvicorn app.main:server --host $HOST --port $PORT"]
+COPY start.sh .
+RUN chmod +x start.sh
+
+CMD ["./start.sh"]
