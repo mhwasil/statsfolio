@@ -9,7 +9,20 @@ A modern web dashboard for visualizing and analyzing your Ghostfolio portfolio d
 - **Activities** — Transaction history with buy/sell/dividend badges, per-activity currency, and pagination.
 - **Theme Toggle** — Switch between dark and light themes, persisted across sessions.
 
-## Quick Start (Docker)
+## Quick Start
+
+### Docker Compose (Recommended)
+
+```bash
+cp .env.example .env
+# Edit .env with your Ghostfolio host and access token
+
+docker compose up -d
+```
+
+Open `http://localhost:3000` in your browser.
+
+### Docker
 
 ```bash
 cp .env.example .env
@@ -70,6 +83,7 @@ Open `http://localhost:3000` in your browser.
 │   ├── exceptions.py    # Custom exception classes
 │   └── statsfolio_client.py  # Ghostfolio REST API client
 ├── .env.example
+├── docker-compose.yml
 ├── Dockerfile
 ├── requirements.txt
 └── README.md

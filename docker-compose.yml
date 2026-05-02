@@ -1,0 +1,13 @@
+services:
+  statsfolio:
+    image: ghcr.io/mhwasil/statsfolio:latest
+    container_name: statsfolio
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    # Or use inline environment variables instead of env_file:
+    # environment:
+    #   - GHOSTFOLIO_HOST=https://your-ghostfolio-instance.com
+    #   - GHOSTFOLIO_TOKEN=your-access-token
