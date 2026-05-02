@@ -7,4 +7,4 @@ pydantic>=2.9.0
 python-dotenv>=1.0.0
 requests>=2.31.0
 scipy>=1.14.0
-uvicorn>=0.30.0
+waitress>=3.0.0

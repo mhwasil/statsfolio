@@ -1,6 +1,7 @@
 services:
   statsfolio:
-    image: ghcr.io/mhwasil/statsfolio:latest
+    build: .
+    # image: ghcr.io/mhwasil/statsfolio:latest  # Uncomment after pushing updated image
     container_name: statsfolio
     restart: unless-stopped
     ports:
