@@ -8,6 +8,6 @@ implementation that interacts with the Ghostfolio REST API.
 """
 
 from statsfolio.exceptions import GhostfolioError
-from statsfolio.statsfolio_client import Client
+from statsfolio.ghostfolio_client import Client
 
 __all__ = ["Client", "GhostfolioError"]
