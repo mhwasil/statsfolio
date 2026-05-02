@@ -8,6 +8,8 @@ class Settings:
     GHOSTFOLIO_HOST: str = os.getenv("GHOSTFOLIO_HOST", "https://ghostfol.io/").rstrip("/")
     GHOSTFOLIO_TOKEN: str = os.getenv("GHOSTFOLIO_TOKEN", "")
     BASE_URL: str = os.getenv("BASE_URL", "/").rstrip("/")
+    HOST: str = os.getenv("HOST", "0.0.0.0")
+    PORT: int = int(os.getenv("PORT", "3000"))
 
     @property
     def has_token(self) -> bool:

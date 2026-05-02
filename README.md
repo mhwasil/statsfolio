@@ -67,6 +67,8 @@ Open `http://localhost:3000` in your browser.
 | `GHOSTFOLIO_HOST` | Yes | – | Ghostfolio instance URL (no trailing slash) |
 | `GHOSTFOLIO_TOKEN` | Yes | – | Your access token from Ghostfolio settings |
 | `BASE_URL` | No | `/` | Base URL path for reverse proxy sub-path deployment (e.g. `/statsfolio`) |
+| `HOST` | No | `0.0.0.0` | Server bind host |
+| `PORT` | No | `3000` | Server port |
 
 ## Project Structure
 

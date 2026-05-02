@@ -12,4 +12,5 @@ services:
     #   - GHOSTFOLIO_HOST=https://your-ghostfolio-instance.com
     #   - GHOSTFOLIO_TOKEN=your-access-token
     #   - BASE_URL=/statsfolio
-    #   - BASE_URL=/statsfolio
+    #   - HOST=0.0.0.0
+    #   - PORT=3000

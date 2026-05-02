@@ -9,4 +9,6 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["uvicorn", "app.main:server", "--host", "0.0.0.0", "--port", "3000"]
+ENV HOST=0.0.0.0 PORT=3000 BASE_URL=/
+
+CMD ["sh", "-c", "uvicorn app.main:server --host $HOST --port $PORT"]
